@@ -1,0 +1,14 @@
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.AssemblyInfoInputs.cache
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.AssemblyInfo.cs
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.csproj.CoreCompileInputs.cache
+C:\xamp\htdocs\CalculadoraCSharp\bin\Debug\net8.0-windows\CalculadoraCSharp.exe
+C:\xamp\htdocs\CalculadoraCSharp\bin\Debug\net8.0-windows\CalculadoraCSharp.deps.json
+C:\xamp\htdocs\CalculadoraCSharp\bin\Debug\net8.0-windows\CalculadoraCSharp.runtimeconfig.json
+C:\xamp\htdocs\CalculadoraCSharp\bin\Debug\net8.0-windows\CalculadoraCSharp.dll
+C:\xamp\htdocs\CalculadoraCSharp\bin\Debug\net8.0-windows\CalculadoraCSharp.pdb
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.dll
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\refint\CalculadoraCSharp.dll
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.pdb
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.genruntimeconfig.cache
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\ref\CalculadoraCSharp.dll
