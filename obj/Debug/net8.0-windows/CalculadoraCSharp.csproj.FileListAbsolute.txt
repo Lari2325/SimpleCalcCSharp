@@ -12,3 +12,4 @@ C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\refint\CalculadoraCSha
 C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.pdb
 C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.genruntimeconfig.cache
 C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\ref\CalculadoraCSharp.dll
+C:\xamp\htdocs\CalculadoraCSharp\obj\Debug\net8.0-windows\CalculadoraCSharp.sourcelink.json

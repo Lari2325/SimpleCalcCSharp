@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CalculadoraCSharp
@@ -9,19 +10,99 @@ namespace CalculadoraCSharp
         private string currentOperation = "";
         private bool isOperationPressed = false;
 
+        private Panel panelTitle;
+        private Button btnClose;
+
+        // Variáveis para controlar o arraste da janela
+        private bool isDragging = false;
+        private Point lastCursor;
+        private Point lastForm;
+
         public Form1()
         {
             InitializeComponent();
 
-            //color
-             ConfigureColors();
+            // Definir o título da janela
+            this.Text = "Calculadora";
+
+            // Configurar a cor
+            ConfigureColors();
+
+            // Definir o ícone da janela
+            string iconPath = "favicon.ico";
+            if (System.IO.File.Exists(iconPath))
+            {
+                this.Icon = new Icon(iconPath);
+            }
+            else
+            {
+                MessageBox.Show("Ícone não encontrado!");
+            }
+
+            panelTitle = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 30,
+                BackColor = ColorTranslator.FromHtml("#004480"), 
+            };
+
+            btnClose = new Button
+            {
+                Text = "X",
+                Dock = DockStyle.Right,
+                Width = 30,
+                BackColor = ColorTranslator.FromHtml("#004480"), 
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderSize = 0 } // Remove a borda do botão
+            };
+
+            btnClose.Click += BtnClose_Click;
+
+            panelTitle.Controls.Add(btnClose);
+            this.Controls.Add(panelTitle);
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            panelTitle.MouseDown += PanelTitle_MouseDown;
+            panelTitle.MouseMove += PanelTitle_MouseMove;
+            panelTitle.MouseUp += PanelTitle_MouseUp;
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void PanelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                lastCursor = Cursor.Position;
+                lastForm = this.Location;
+            }
+        }
+
+        private void PanelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point delta = Point.Subtract(Cursor.Position, new Size(lastCursor));
+                this.Location = Point.Add(lastForm, new Size(delta));
+            }
+        }
+
+        private void PanelTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
         }
 
         private void ConfigureColors()
         {
-            this.BackColor = Color.LightGray; // Cor de fundo do formulário
+            Color colorSystem = ColorTranslator.FromHtml("#afd1ee");
 
-            // Cores para botões numéricos
+            this.BackColor = colorSystem; 
+
             Color buttonNumberBackColor = Color.LightBlue;
             Color buttonNumberForeColor = Color.DarkBlue;
 
@@ -46,7 +127,6 @@ namespace CalculadoraCSharp
             btnNumber9.BackColor = buttonNumberBackColor;
             btnNumber9.ForeColor = buttonNumberForeColor;
 
-            // Cores para botões de operação
             Color buttonOperationBackColor = Color.LightGreen;
             Color buttonOperationForeColor = Color.DarkGreen;
 
@@ -59,32 +139,35 @@ namespace CalculadoraCSharp
             btnDivide.BackColor = buttonOperationBackColor;
             btnDivide.ForeColor = buttonOperationForeColor;
 
-            btnEqual.BackColor = Color.FromArgb(255, 240, 128, 128); 
-            btnEqual.ForeColor = Color.White;
+            btnEqual.BackColor = Color.FromArgb(242, 214, 214, 255); 
+            btnEqual.ForeColor = Color.DarkBlue;
 
-            btnClear.BackColor = Color.Red; 
-            btnClear.ForeColor = Color.White; 
+            btnClear.BackColor = Color.FromArgb(242, 214, 214, 255); 
+            btnClear.ForeColor = Color.DarkBlue; 
 
-            btnSqrt.BackColor = Color.LightYellow; 
+            btnSqrt.BackColor = Color.FromArgb(255, 202, 239, 128);
             btnSqrt.ForeColor = Color.Black; 
 
-            btnSquare.BackColor = Color.LightYellow; 
+            btnSquare.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnSquare.ForeColor = Color.Black; 
 
-            btnSine.BackColor = Color.LightYellow; 
+            btnSine.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnSine.ForeColor = Color.Black; 
 
-            btnCosine.BackColor = Color.LightYellow; 
+            btnCosine.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnCosine.ForeColor = Color.Black; 
 
-            btnTangent.BackColor = Color.LightYellow; 
+            btnTangent.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnTangent.ForeColor = Color.Black; 
 
-            btnLog.BackColor = Color.LightYellow; 
+            btnLog.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnLog.ForeColor = Color.Black; 
 
-            btnExp.BackColor = Color.LightYellow; 
+            btnExp.BackColor = Color.FromArgb(255, 202, 239, 128); 
             btnExp.ForeColor = Color.Black; 
+
+            btnDecimal.BackColor = Color.LightGreen; 
+            btnDecimal.ForeColor = Color.Black; 
 
             txtDisplay.BackColor = Color.White; 
             txtDisplay.ForeColor = Color.Black; 
