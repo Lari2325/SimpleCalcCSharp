@@ -13,7 +13,6 @@ namespace CalculadoraCSharp
         private Panel panelTitle;
         private Button btnClose;
 
-        // Variáveis para controlar o arraste da janela
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
@@ -54,7 +53,7 @@ namespace CalculadoraCSharp
                 BackColor = ColorTranslator.FromHtml("#004480"), 
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                FlatAppearance = { BorderSize = 0 } // Remove a borda do botão
+                FlatAppearance = { BorderSize = 0 }
             };
 
             btnClose.Click += BtnClose_Click;
